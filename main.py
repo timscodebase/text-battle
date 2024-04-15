@@ -4,9 +4,12 @@ from character import Hero, Enemy, Wizard, Boss
 from hero_setup_menu import hero_setup_menu
 from welcome import welcome
 
+# Global variables 
 winner = None
 game_over = False
 
+
+# Game Setup
 welcome()
 hero = hero_setup_menu()
 hero.tell_story()
@@ -14,10 +17,14 @@ enemy = Enemy(name="Evil Cat", health=100, magic=0)
 
 battle = Battle(hero, enemy)
 
+def text_adv() -> None:
+  # Game Loop
+  global game_over
+  while game_over == False:
+    winner = battle.fight()
+    print(f"The winner is {winner.name}!")
 
-while game_over == False:
-  winner = battle.fight()
-  print(f"The winner is {winner.name}!")
+    input()
 
-  input()
+text_adv()
 
