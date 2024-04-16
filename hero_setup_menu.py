@@ -1,4 +1,4 @@
-# from main import game_over
+import os
 from character import Warrior, Wizard, Cleric, Thief
 
 def quit():
@@ -6,8 +6,18 @@ def quit():
   global game_over
   game_over = True
 
-def hero_setup_menu() -> None:
+def get_name() -> str:
   name = input('Name your hero\n\n')
+  # if name empty string
+  while name == '':
+    os.system("clear")
+    name = input('Name your hero\n\n')
+    get_name()
+
+  return name
+
+def hero_setup_menu() -> None:
+  name = get_name()
   action = input('Choose your hero\'s trade:\n\n(1) Warrior\n(2) Wizard\n(3) Cleric\n(4) Thief\n\n(Q) Quit:\n\n')
   hero = None
 

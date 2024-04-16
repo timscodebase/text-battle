@@ -88,7 +88,7 @@ class Warrior(Hero):
             target.health -= 8
             print(f"{self.name} jabbed at {target.name}!")
 
-class Wizard(Character):
+class Wizard(Hero):
     def __init__(self, name: str, health: int = 75, magic: int = 30, weapon: Weapon = fists) -> None:
         super().__init__(name=name, health=health, magic=magic, weapon=weapon)
         self.weapon = fists
@@ -110,8 +110,8 @@ class Wizard(Character):
             print(f"{self.name} healed {target.name}!")
 
 class Thief(Hero):
-    def __init__(self, name: str, health: int = 100, magic: int = 15, weapon: Weapon = short_bow, color: str = "brown") -> None:
-        super().__init__(name=name, health=health, magic=magic, weapon=weapon, color="brown")
+    def __init__(self, name: str, health: int = 100, magic: int = 15, weapon: Weapon = short_bow) -> None:
+        super().__init__(name=name, health=health, magic=magic, weapon=weapon)
         self.weapon = fists
         self.backstory = thief_backstory(self.name)
         self.color = brown
@@ -124,8 +124,8 @@ class Thief(Hero):
             print(f"You stole {item.name}  from {target.name} !")
 
 class Cleric(Hero):
-    def __init__(self, name: str, health: int = 100, magic: int = 30, weapon: Weapon = fists, color: str = "purple") -> None:
-        super().__init__(name=name, health=health, magic=magic, weapon=weapon, color=color)
+    def __init__(self, name: str, health: int = 100, magic: int = 30, weapon: Weapon = fists) -> None:
+        super().__init__(name=name, health=health, magic=magic, weapon=weapon)
         self.weapon = fists
         self.backstory = cleric_backstory(self.name)
         self.color = purple
