@@ -8,7 +8,7 @@ def quit():
 
 def hero_setup_menu() -> None:
   name = input('Name your hero\n\n')
-  action = input('Choose your action:\n(1) Warrior\n(2) Wizard\n(3) Cleric\n(4) Thief\n\n(Q) Quit:\n\n')
+  action = input('Choose your hero\'s trade:\n\n(1) Warrior\n(2) Wizard\n(3) Cleric\n(4) Thief\n\n(Q) Quit:\n\n')
   hero = None
 
   if action in ['1', '2', '3', '4']:
@@ -22,5 +22,7 @@ def hero_setup_menu() -> None:
       hero = Thief(name=name)
     else:
       quit()
+
+  print(f'You are {hero.name} the {hero.__class__.__name__}!')
 
   return hero
