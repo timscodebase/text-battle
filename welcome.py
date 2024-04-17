@@ -1,7 +1,6 @@
 import os
 from art import *
-from colors import *
-# from utils import create_character, greet
+from utils.colors import *
 
 HERO = "Papi"
 

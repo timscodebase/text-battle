@@ -1,6 +1,6 @@
 import os
 from battle import Battle
-from character import Hero, Enemy, Wizard, Boss
+from classes.enemies import Enemy
 from game_menu import game_menu
 from hero_setup_menu import hero_setup_menu
 from welcome import welcome

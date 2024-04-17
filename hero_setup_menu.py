@@ -1,5 +1,5 @@
 import os
-from character import Warrior, Wizard, Cleric, Thief
+from classes.hero import Warrior, Wizard, Cleric, Thief
 
 def quit():
   print('Goodbye!')
