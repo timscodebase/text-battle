@@ -3,6 +3,7 @@ import random
 from utils.colors import *
 from classes.enemies import Zombie
 from classes import Battle
+from time import sleep
 
 def eat(hero) -> None:
   if hero.food_available > 0:
@@ -10,8 +11,11 @@ def eat(hero) -> None:
     hero.health += 10
     print(f'Your health is now {hero.health}')
     hero.food_available -= 1
+    print(f'Your food is now {hero.food_available}')
+    sleep(1)
   else:
     print('You don\'t have any food\nTry to explore to find something to eat')
+    sleep(1)
 
   game_menu(hero)
 
@@ -19,9 +23,13 @@ def explore(hero) -> None:
   found_food = random.choice([True, False, False])
   if found_food:
     print('You found food')
+    sleep(1)
     hero.food_available += 1
+    print(f'Your food is now {hero.food_available}')
+    sleep(1)
   else:
     print('You found nothing')
+    sleep(1)
 
   game_menu(hero)
 
@@ -32,6 +40,7 @@ def walk(hero) -> None:
     Battle(hero, zombie_instance).fight()
   else:
     print('You walk')
+    sleep(1)
 
   game_menu(hero)
 
