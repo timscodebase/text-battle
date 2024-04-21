@@ -37,9 +37,8 @@ def walk(hero) -> None:
 
 
 def game_menu(hero) -> None:
-  action = input('Choose your action:\n(1) Walk\n(2) Explore\n(3) Eat\n\n(Q) Quit:\n\n')
-  
   os.system('clear')
+  action = input('Choose your action:\n(1) Walk\n(2) Explore\n(3) Eat\n\n(Q) Quit:\n\n')
   
   if action not in ['1', '2', '3', 'Q', 'q']:
     print(red |'Invalid input')

@@ -1,8 +1,9 @@
-# utils/hero_setup_menu.py
+import os
 
 from .get_name import get_name
 
 def hero_setup_menu() -> None:
+    os.system('clear')
     from classes.heros import Warrior, Wizard, Cleric, Thief
     name = get_name()
     action = input('Choose your hero\'s trade:\n\n(1) Warrior\n(2) Wizard\n(3) Cleric\n(4) Thief\n\n(Q) Quit:\n\n')

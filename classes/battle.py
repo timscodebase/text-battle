@@ -12,8 +12,7 @@ class Battle:
   def fight(self) -> None:
     while self.battle_completed == False:
       os.system("clear")
-      print(f"{self.hero.name} vs. {self.enemy.name}")
-      print(self.battle_completed == False)
+      print(f"{self.hero.name} vs. {self.enemy.name}\n\n")
       self.hero.health_bar.draw()
       self.enemy.health_bar.draw()
       input()
