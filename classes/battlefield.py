@@ -1,8 +1,8 @@
-from battle import Battle
-from character import Hero, Enemy
+from classes import Battle
+from classes.character import Character
 
 class BattleField:
-  def __init__(self, name: str, hero: Hero, enemy: Enemy) -> None:
+  def __init__(self, name: str, hero: Character, enemy: Character) -> None:
     self.name = name
     self.hero = hero
     self.enemy = enemy

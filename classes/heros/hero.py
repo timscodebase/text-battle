@@ -1,5 +1,11 @@
-from classes import Character, HealthBar, Weapon, fists
-from utils import blue
+from utils import blue, type_text
+from classes.character import Character
+from classes.health_bar import HealthBar
+from classes.weapon import fists, Weapon
+
+class Hero:
+    def __init__(self, name: str, health: int = 75, magic: int = 30, weapon: Weapon = fists, character: Character = None) -> None:
+        self.character = character or Character(name=name, health=health, magic=magic, weapon=weapon)
 
 class Hero(Character):
     def __init__(self,
@@ -36,7 +42,3 @@ class Hero(Character):
             print("You can't punch with a sharp weapon.  Use your fists or look for something blunt!")
         else:
             target.health -= 5
-
-    def tell_story(self) -> None:
-        print(self.color | f"\n\n{self.backstory}\n\nPress any key to continue...".center(40, " "))
-        input()

@@ -1,9 +1,9 @@
 import os
-from classes.hero import Hero
+from classes.character import Character
 from classes.enemies import Enemy
 
 class Battle:
-  def __init__(self, hero: Hero, enemy: Enemy) -> None:
+  def __init__(self, hero: Character, enemy: Enemy) -> None:
     self.hero = hero
     self.enemy = enemy
     self.battle_completed = False

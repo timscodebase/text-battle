@@ -1,24 +1,23 @@
 import os
-from battle import Battle
-from classes.enemies import Enemy
-from game_menu import game_menu
-from hero_setup_menu import hero_setup_menu
+from classes import Battle
+from classes import fists
+from classes.enemies import Zombie
+from utils.game_menu import game_menu
+from utils.hero_setup_menu import hero_setup_menu
 from welcome import welcome
 
 # Global variables 
 winner = None
 game_over = False
 
-
 # Game Setup
 welcome()
-hero = hero_setup_menu()
+hero = hero_setup_menu()  
+zombie = Zombie("Zombie", health=30, magic=10, weapon=fists)
+
 
 os.system("clear")
 hero.tell_story()
-
-enemy = Enemy(name="Evil Cat", health=100, magic=0)
-battle = Battle(hero, enemy)
 
 def text_adv() -> None:
   # Game Loop

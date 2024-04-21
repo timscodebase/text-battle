@@ -1,7 +1,8 @@
 import os
 import random
 from utils.colors import *
-from classes.enemies import Enemy
+from classes.enemies import Zombie
+from classes import Battle
 
 def eat(hero) -> None:
   if hero.food_available > 0:
@@ -27,10 +28,12 @@ def explore(hero) -> None:
 def walk(hero) -> None:
   fight = random.choice([True, False, False])
   if fight:
-    # enemy = random.choice([Zombie, Dragon, Boss])()
-    hero.battle(Enemy)
+    zombie_instance = Zombie(name='Zombie')  # Instantiate the Zombie class
+    Battle(hero, zombie_instance).fight()
   else:
     print('You walk')
+
+  game_menu(hero)
 
 
 def game_menu(hero) -> None:
