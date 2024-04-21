@@ -1,11 +1,13 @@
+from classes import Weapon, fists
 from classes.character import Character
-from utils import cleric_backstory
+from utils import cleric_backstory, blue
 
 class Cleric(Character):
-  def __init__(self, name: str, health: int = 75, magic: int = 30) -> None:
-    super().__init__(name=name, health=health, magic=magic)
+  def __init__(self, name: str, health: int = 100, magic: int = 10, weapon: Weapon = fists) -> None:
+    super().__init__(name=name, health=health, magic=magic, weapon=weapon)
 
-    self.color = "blue"
+    self.color = blue
+    self.hb_color = "blue"
     self.backstory = cleric_backstory(self.name)
 
   def heal(self, target) -> None:

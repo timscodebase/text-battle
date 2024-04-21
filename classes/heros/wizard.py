@@ -8,6 +8,7 @@ class Wizard(Character):
 
         self.backstory = wizard_backstory(self.name)
         self.color = green
+        self.hb_color = "green"
 
     def fireball(self, target) -> None:
         self.magic -= 10

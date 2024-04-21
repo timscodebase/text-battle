@@ -7,6 +7,7 @@ class Warrior(Character):
         super().__init__(name=name, health=health, magic=magic, weapon=weapon)
 
         self.color = grey
+        self.hb_color = "grey"
         self.backstory = warrior_backstory(self.name)
 
     def jab(self, target) -> None:

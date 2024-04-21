@@ -1,6 +1,6 @@
 from .weapon import Weapon, fists
 from .health_bar import HealthBar
-from utils import type_text
+from utils import type_text, grey
 
 class Character:
     def __init__(self, name: str, health: int = 75, magic: int = 30, weapon: Weapon = fists) -> None:
@@ -10,8 +10,10 @@ class Character:
         self.magic = magic
         self.weapon = weapon
         self.is_alive = True
-        self.color = "grey"
-        self.health_bar = HealthBar(self, self.color)
+        self.color = grey
+        self.hb_color = "grey"
+        self.health_bar = HealthBar(self, self.health_max, is_colored=True, color=self.hb_color)
+        self.food_available = 0
 
     def attack(self, target) -> None:
         target.health -= self.weapon.damage
