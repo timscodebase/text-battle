@@ -1,11 +1,11 @@
 import os
 import random
-from utils.colors import red
-from utils.tally_food import tally_food
 from classes.battle import Battle
 from classes.enemies import Zombie
 from classes.food import Apple, Bread, GoldenApple, Steak
 from time import sleep
+from utils.colors import red
+from utils.tally_food import tally_food
 
 def eat(hero) -> None:
   if hero.food_available > 0:
@@ -39,8 +39,9 @@ def explore(hero) -> None:
 def walk(hero) -> None:
   fight = random.choice([True, False, False])
   if fight:
-    zombie_instance = Zombie(name='Zombie')  # Instantiate the Zombie class
-    Battle(hero, zombie_instance).fight()
+    zombie = Zombie(name='Zombie')  # Instantiate the Zombie class
+    battle = Battle(hero, zombie)
+    battle.fight()
   else:
     print('You walk')
     sleep(1)
