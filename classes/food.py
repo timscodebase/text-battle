@@ -3,6 +3,11 @@ class Food:
     self.name = name
     self.value = value
 
+  def eat(self, hero) -> None:
+    hero.health += self.value
+    hero.food_available[self.name] = hero.food_available.get(self.name, 0) - 1
+
+
 class Apple(Food):
   def __init__(self) -> None:
     super().__init__(name="apple", value=5)

@@ -4,7 +4,7 @@ from classes import fists
 from classes.enemies import Zombie
 from utils.game_menu import game_menu
 from utils.hero_setup_menu import hero_setup_menu
-from welcome import welcome
+from utils.welcome import welcome
 
 # Global variables 
 winner = None

@@ -1,6 +1,6 @@
 import os
-from art import *
-from utils.colors import *
+from art import text2art
+from utils.colors import green
 
 HERO = "Papi"
 

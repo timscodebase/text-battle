@@ -1,6 +1,8 @@
-from .weapon import Weapon, fists
-from .health_bar import HealthBar
+from time import sleep
 from utils import type_text, grey
+from classes.health_bar import HealthBar
+from classes.weapon import fists, Weapon
+from utils.tally_food import tally_food
 
 class Character:
     def __init__(self, name: str, health: int = 75, magic: int = 30, weapon: Weapon = fists) -> None:
@@ -13,7 +15,12 @@ class Character:
         self.color = grey
         self.hb_color = "grey"
         self.health_bar = HealthBar(self, self.health_max, is_colored=True, color=self.hb_color)
-        self.food_available = 0
+        # variable for keeping track of food types and amount
+        self.food_available = {"apple": 0, "bread": 0, "golden_apple": 0, "steak": 0}
+        self.food_count = tally_food(self)
+
+    def __repr__(self):
+        return f"{self.name}:  Health: {self.health} | Magic: {self.magic} | Food: {self.food_count} | Weapon: {self.weapon.name}"
 
     def attack(self, target) -> None:
         target.health -= self.weapon.damage
@@ -24,5 +31,7 @@ class Character:
             target.is_alive = False
 
     def tell_story(self) -> None:
-        type_text(self.color, f"\n\n{self.backstory}\n\nPress any key to continue...".center(40, " "))
+        type_text(self.color, self.backstory)
+        sleep(1)
+        print("\n\nPress any key to continue...")
         input()

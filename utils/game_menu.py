@@ -1,8 +1,10 @@
 import os
 import random
-from utils.colors import *
+from utils.colors import red
+from utils.tally_food import tally_food
+from classes.battle import Battle
 from classes.enemies import Zombie
-from classes import Battle
+from classes.food import Apple, Bread, GoldenApple, Steak
 from time import sleep
 
 def eat(hero) -> None:
@@ -22,14 +24,15 @@ def eat(hero) -> None:
 def explore(hero) -> None:
   found_food = random.choice([True, False, False])
   if found_food:
-    print('You found food')
-    sleep(1)
-    hero.food_available += 1
-    print(f'Your food is now {hero.food_available}')
-    sleep(1)
+    available_foods = [Apple(), Bread(), Steak(), GoldenApple()]
+    chosen_food = random.choice(available_foods)
+    hero.food_available[chosen_food.name] = hero.food_available.get(chosen_food.name, 0) + 1
+    hero.food_count = tally_food(hero)
+    print(f'You found a(n) {chosen_food.name}')
+    input('Press any key to continue...\n\n')
   else:
     print('You found nothing')
-    sleep(1)
+    input('Press any key to continue...\n\n')
 
   game_menu(hero)
 
@@ -47,9 +50,9 @@ def walk(hero) -> None:
 
 def game_menu(hero) -> None:
   os.system('clear')
-  action = input('Choose your action:\n(1) Walk\n(2) Explore\n(3) Eat\n\n(Q) Quit:\n\n')
+  action = input('Choose your action:\n(1) Walk\n(2) Explore\n(3) Eat \n(4) Inventory\n\n(Q) Quit:\n\n')
   
-  if action not in ['1', '2', '3', 'Q', 'q']:
+  if action not in ['1', '2', '3', '4', 'Q', 'q']:
     print(red |'Invalid input')
     game_menu(hero)
   elif action == '1': # Walk
@@ -58,5 +61,7 @@ def game_menu(hero) -> None:
     explore(hero)
   elif action == '3': # Eat
     eat(hero)
+  elif action == '4': # Inventory
+    print(hero)
   elif action == 'q' or action == 'Q':
     quit()
